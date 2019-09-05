@@ -1,0 +1,150 @@
+<html>
+<head>
+</head>
+<body>
+<h1>Covariance Calculator</h1>
+<style>
+    table{
+      border: solid black;
+    }
+    th, td, input[type=text]{
+        color : blue;
+    }
+    p{
+        font-size : 20px;
+        font-family : verdana;
+    }
+</style>
+    <table>
+      <tr>
+        <th>X</th>
+        <th>Y</th>
+      </tr>
+      <tr>
+        <td onkeypress="return event.charCode >= 48 && event.charCode <= 57"> <input type="text" name="x1" id="x1" value="None">   </td>
+        <td onkeypress="return event.charCode >= 48 && event.charCode <= 57"> <input type="text" name="y1" id="y1" value="None">   </td>
+      </tr>
+      <tr>
+        <td onkeypress="return event.charCode >= 48 && event.charCode <= 57"> <input type="text" name="x2" id="x2" value="None">   </td>
+        <td onkeypress="return event.charCode >= 48 && event.charCode <= 57"> <input type="text" name="y2" id="y2" value="None">   </td>
+      </tr>
+      <tr>
+        <td onkeypress="return event.charCode >= 48 && event.charCode <= 57"> <input type="text" name="x3" id="x3" value="None">   </td>
+        <td onkeypress="return event.charCode >= 48 && event.charCode <= 57"> <input type="text" name="y3" id="y3" value="None">   </td>
+      </tr>
+      <tr>
+        <td onkeypress="return event.charCode >= 48 && event.charCode <= 57"> <input type="text" name="x4" id="x4" value="None">   </td>
+        <td onkeypress="return event.charCode >= 48 && event.charCode <= 57"> <input type="text" name="y4" id="y4" value="None">   </td>
+      </tr>
+      <tr>
+        <td onkeypress="return event.charCode >= 48 && event.charCode <= 57"> <input type="text" name="x5" id="x5" value="None">   </td>
+        <td onkeypress="return event.charCode >= 48 && event.charCode <= 57"> <input type="text" name="y5" id="y5" value="None">   </td>
+      </tr>
+      
+      <tr>
+        <td onkeypress="return event.charCode >= 48 && event.charCode <= 57"> <input type="text" name="x6">   </td>
+        <td onkeypress="return event.charCode >= 48 && event.charCode <= 57"> <input type="text" name="y6">   </td>
+      </tr>
+      <tr>
+        <td onkeypress="return event.charCode >= 48 && event.charCode <= 57"> <input type="text" name="x7">   </td>
+        <td onkeypress="return event.charCode >= 48 && event.charCode <= 57"> <input type="text" name="y7">   </td>
+      </tr>
+      <tr>
+        <td onkeypress="return event.charCode >= 48 && event.charCode <= 57"> <input type="text" name="x8">   </td>
+        <td onkeypress="return event.charCode >= 48 && event.charCode <= 57"> <input type="text" name="y8">   </td>
+      </tr>
+      <tr>
+        <td onkeypress="return event.charCode >= 48 && event.charCode <= 57"> <input type="text" name="x9">   </td>
+        <td onkeypress="return event.charCode >= 48 && event.charCode <= 57"> <input type="text" name="y9">   </td>
+      </tr>
+      <tr>
+        <td onkeypress="return event.charCode >= 48 && event.charCode <= 57"> <input type="text" name="x10">   </td>
+        <td onkeypress="return event.charCode >= 48 && event.charCode <= 57"> <input type="text" name="y10">   </td>
+      </tr>
+    </table> 
+    <br>
+    <input onclick="Calculate()" type="submit" value="Calculate">
+    <script>
+
+    function Calculate(){
+        var Xarray = [];
+        var Yarray = [];
+        var Xsum = 0, Ysum = 0, Xavg = 0, Yavg = 0, SumCxy = 0;
+
+
+        var x1 = document.getElementById("x1").value;
+        Xarray.push(x1);
+        var x2 = document.getElementById("x2").value;
+        Xarray.push(x2);
+        var x3 = document.getElementById("x3").value;
+        Xarray.push(x3);
+        var x4 = document.getElementById("x4").value;
+        Xarray.push(x4);
+        var x5 = document.getElementById("x5").value;
+        Xarray.push(x5);
+        var x6 = document.getElementById("x6").value;
+        Xarray.push(x6);
+        var x7 = document.getElementById("x7").value;
+        Xarray.push(x7);
+        var x8 = document.getElementById("x8").value;
+        Xarray.push(x8);
+        var x9 = document.getElementById("x9").value;
+        Xarray.push(x9);
+        var x10 = document.getElementById("x10").value;
+        Xarray.push(x10);
+        
+        
+        
+        var y1 = document.getElementById("y1").value;
+        Yarray.push(y1);
+        var y2 = document.getElementById("y2").value;
+        Yarray.push(y2);
+        var y3 = document.getElementById("y3").value;
+        Yarray.push(y3);
+        var y4 = document.getElementById("y4").value;
+        Yarray.push(y4);
+        var y5 = document.getElementById("y5").value;
+        Yarray.push(y5);
+        var y6 = document.getElementById("y6").value;
+        Yarray.push(y6);
+        var y7 = document.getElementById("y7").value;
+        Yarray.push(y7);
+        var y8 = document.getElementById("y8").value;
+        Yarray.push(y8);
+        var y9 = document.getElementById("y9").value;
+        Yarray.push(y9);
+        var y10 = document.getElementById("y10").value;
+        Yarray.push(y10);
+        
+    
+
+    for (var i = 0 ; Xarray[i] != undefined ; i++ ){ 
+        Xsum += Number(Xarray[i]); 
+    }
+    Xavg = Xsum / i ;
+
+    for (var i = 0 ; Yarray[i] != undefined ; i++ ){ 
+        Ysum += Number(Yarray[i]); 
+    }
+    Yavg = Ysum / i ; // INDEX OK
+
+    for(var j = 0 ; Xarray[j] != undefined && Xarray[j] != undefined ; j++){
+        SumCxy += (Xarray[j] - Xavg) * (Yarray[j] - Yavg);
+    }
+
+    Covariance = SumCxy / j ; //INDEX OK
+
+    //document.write("<p><b>Sum of X values: </b></p>", Xsum);
+    //document.write("<br><br>");
+    document.write("<p><b>Average of X values: </b></p>", Xavg);
+    document.write("<p><b>Average of Y values: </b></p>", Yavg);
+    document.write("<p><b>Covariance: </b></p>", Covariance);
+    /* TEST
+    console.log(Xsum);
+    console.log(Xavg);
+    */
+
+}//end of function Calculate()
+    </script>
+</body>
+</html>
